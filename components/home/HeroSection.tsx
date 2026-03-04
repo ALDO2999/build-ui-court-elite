@@ -11,7 +11,7 @@ export function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <Image
-        src="/images/branding-2.jpg"
+        src="/images/hero-section.jpg"
         alt="Premium padel court"
         fill
         className="object-cover"

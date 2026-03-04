@@ -1,6 +1,6 @@
 import type { NavLink } from "./types";
 
-export const BRAND_NAME = "COURT ELITE";
+export const BRAND_NAME = "THE NEXT PADEL";
 export const BRAND_TAGLINE = "Where Excellence Meets the Court";
 
 export const NAV_LINKS: NavLink[] = [

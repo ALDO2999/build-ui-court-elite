@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Instagram, Phone } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { useScrolled } from "@/hooks/useScrolled";
-import { BRAND_NAME, NAV_LINKS } from "@/lib/constants";
+import { BRAND_NAME, NAV_LINKS, SOCIAL_LINKS } from "@/lib/constants";
 
 export function Navbar() {
   const scrolled = useScrolled();
@@ -16,7 +16,7 @@ export function Navbar() {
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          scrolled || mobileOpen
+          scrolled
             ? "bg-white/95 backdrop-blur-md shadow-sm"
             : "bg-transparent"
         )}
@@ -25,9 +25,10 @@ export function Navbar() {
           {/* Logo */}
           <Link
             href="/"
+            onClick={() => setMobileOpen(false)}
             className={cn(
               "text-xl font-bold tracking-[0.2em] uppercase transition-colors duration-300",
-              scrolled || mobileOpen ? "text-foreground" : "text-white"
+              scrolled ? "text-foreground" : "text-white"
             )}
           >
             {BRAND_NAME}
@@ -49,40 +50,103 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Menu Toggle - Animated Hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className={cn(
-              "lg:hidden p-2 transition-colors duration-300",
-              scrolled || mobileOpen ? "text-foreground" : "text-white"
-            )}
+            className="lg:hidden relative w-8 h-8 flex items-center justify-center cursor-pointer"
             aria-label="Toggle menu"
           >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <span
+              className={cn(
+                "absolute h-0.5 w-6 rounded-full transition-all duration-300",
+                scrolled ? "bg-foreground" : "bg-white",
+                mobileOpen ? "rotate-45" : "-translate-y-2"
+              )}
+            />
+            <span
+              className={cn(
+                "absolute h-0.5 w-6 rounded-full transition-all duration-300",
+                scrolled ? "bg-foreground" : "bg-white",
+                mobileOpen ? "opacity-0 scale-0" : "opacity-100 scale-100"
+              )}
+            />
+            <span
+              className={cn(
+                "absolute h-0.5 w-6 rounded-full transition-all duration-300",
+                scrolled ? "bg-foreground" : "bg-white",
+                mobileOpen ? "-rotate-45" : "translate-y-2"
+              )}
+            />
           </button>
         </nav>
       </header>
 
-      {/* Mobile Menu - outside header to avoid stacking context issues */}
+      {/* Mobile Menu - Full screen dark overlay */}
       <div
         className={cn(
-          "lg:hidden fixed inset-0 top-20 bg-white z-50 transition-all duration-300",
+          "lg:hidden fixed inset-0 top-20 bg-foreground z-50 transition-all duration-500",
           mobileOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         )}
       >
-        <div className="flex flex-col items-center gap-8 pt-16">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setMobileOpen(false)}
-              className="text-lg font-medium uppercase tracking-wider text-foreground hover:text-accent transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
+        <div className="flex flex-col justify-between h-full px-8 py-12">
+          {/* Nav Links */}
+          <div className="flex flex-col gap-1">
+            {NAV_LINKS.map((link, i) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className={cn(
+                  "text-3xl font-bold uppercase tracking-wider text-white/70 hover:text-white transition-all duration-500 py-3 border-b border-white/10",
+                  mobileOpen
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 -translate-x-4"
+                )}
+                style={{
+                  transitionDelay: mobileOpen ? `${i * 75 + 100}ms` : "0ms",
+                }}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Bottom section - Social & Brand */}
+          <div
+            className={cn(
+              "flex items-center justify-between pt-8 border-t border-white/10 transition-all duration-500",
+              mobileOpen
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
+            )}
+            style={{ transitionDelay: mobileOpen ? "500ms" : "0ms" }}
+          >
+            <p className="text-xs text-white/30 uppercase tracking-wider">
+              {BRAND_NAME}
+            </p>
+            <div className="flex items-center gap-4">
+              <a
+                href={SOCIAL_LINKS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/40 hover:text-white transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href={SOCIAL_LINKS.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/40 hover:text-white transition-colors"
+                aria-label="WhatsApp"
+              >
+                <Phone className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </>
