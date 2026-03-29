@@ -12,13 +12,13 @@ export const NAV_LINKS: NavLink[] = [
 ];
 
 export const SOCIAL_LINKS = {
-  whatsapp: "https://wa.me/1234567890",
-  instagram: "https://instagram.com/courtelite",
+  whatsapp: "https://wa.me/62895405101690",
+  instagram: "https://www.instagram.com/aldopermn",
   facebook: "https://facebook.com/courtelite",
 };
 
 export const CONTACT_INFO = {
   address: "123 Elite Sports Avenue, Dubai, UAE",
-  phone: "+971 4 123 4567",
-  email: "info@courtelite.com",
+  phone: "+62895405101690",
+  email: "aldoputra2999@gmail.com",
 };
