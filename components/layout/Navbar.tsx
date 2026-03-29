@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Instagram, Phone } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { useScrolled } from "@/hooks/useScrolled";
@@ -10,6 +10,11 @@ import { BRAND_NAME, NAV_LINKS, SOCIAL_LINKS } from "@/lib/constants";
 export function Navbar() {
   const scrolled = useScrolled();
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
 
   return (
     <>
