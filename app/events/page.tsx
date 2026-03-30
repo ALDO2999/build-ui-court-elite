@@ -6,14 +6,14 @@ import { EventModal } from "@/components/events/EventModal";
 import { events } from "@/lib/placeholder-data";
 import type { Event } from "@/lib/types";
 
-const categories = ["Semua", "Tournament", "Clinic", "Social"];
+const categories = ["All", "Tournament", "Clinic", "Social"];
 
 export default function EventsPage() {
   const [selected, setSelected] = useState<Event | null>(null);
-  const [activeCategory, setActiveCategory] = useState("Semua");
+  const [activeCategory, setActiveCategory] = useState("All");
 
   const filtered =
-    activeCategory === "Semua"
+    activeCategory === "All"
       ? events
       : events.filter((e) => e.category === activeCategory);
 
@@ -23,13 +23,13 @@ export default function EventsPage() {
         {/* Header */}
         <div className="mb-10">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">
-            Jadwal & Kegiatan
+            Schedule & Activities
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-foreground">
             Events
           </h1>
           <p className="mt-3 text-muted max-w-lg">
-            Ikuti turnamen, klinik, dan sesi sosial yang kami adakan. Daftarkan dirimu dan jadilah bagian dari komunitas.
+            Join our tournaments, clinics, and social sessions. Register now and become part of the community.
           </p>
         </div>
 
@@ -52,7 +52,7 @@ export default function EventsPage() {
 
         {/* Grid */}
         {filtered.length === 0 ? (
-          <p className="text-muted text-center py-20">Tidak ada event untuk kategori ini.</p>
+          <p className="text-muted text-center py-20">No events found for this category.</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((event) => (

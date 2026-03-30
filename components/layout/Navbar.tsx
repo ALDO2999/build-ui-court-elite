@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Instagram, Phone } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { useScrolled } from "@/hooks/useScrolled";
@@ -9,6 +10,8 @@ import { BRAND_NAME, NAV_LINKS, SOCIAL_LINKS } from "@/lib/constants";
 
 export function Navbar() {
   const scrolled = useScrolled();
+  const pathname = usePathname();
+  const isOpaque = scrolled || pathname !== "/";
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
@@ -21,7 +24,7 @@ export function Navbar() {
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          scrolled
+          isOpaque
             ? "bg-white/95 backdrop-blur-md shadow-sm"
             : "bg-transparent"
         )}
@@ -33,7 +36,7 @@ export function Navbar() {
             onClick={() => setMobileOpen(false)}
             className={cn(
               "text-xl font-bold tracking-[0.2em] uppercase transition-colors duration-300",
-              scrolled ? "text-foreground" : "text-white"
+              isOpaque ? "text-foreground" : "text-white"
             )}
           >
             {BRAND_NAME}
@@ -44,7 +47,7 @@ export function Navbar() {
             {NAV_LINKS.map((link) => {
               const cls = cn(
                 "text-sm font-medium uppercase tracking-wider transition-colors duration-300 hover:opacity-70",
-                scrolled ? "text-foreground" : "text-white"
+                isOpaque ? "text-foreground" : "text-white"
               );
               return link.external ? (
                 <a
@@ -73,21 +76,21 @@ export function Navbar() {
             <span
               className={cn(
                 "absolute h-0.5 w-6 rounded-full transition-all duration-300",
-                scrolled ? "bg-foreground" : "bg-white",
+                isOpaque ? "bg-foreground" : "bg-white",
                 mobileOpen ? "rotate-45" : "-translate-y-2"
               )}
             />
             <span
               className={cn(
                 "absolute h-0.5 w-6 rounded-full transition-all duration-300",
-                scrolled ? "bg-foreground" : "bg-white",
+                isOpaque ? "bg-foreground" : "bg-white",
                 mobileOpen ? "opacity-0 scale-0" : "opacity-100 scale-100"
               )}
             />
             <span
               className={cn(
                 "absolute h-0.5 w-6 rounded-full transition-all duration-300",
-                scrolled ? "bg-foreground" : "bg-white",
+                isOpaque ? "bg-foreground" : "bg-white",
                 mobileOpen ? "-rotate-45" : "translate-y-2"
               )}
             />

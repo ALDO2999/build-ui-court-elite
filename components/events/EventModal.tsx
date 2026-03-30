@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import Image from "next/image";
-import { X, Calendar, Clock, MapPin, Users, Trophy, MessageCircle } from "lucide-react";
+import { X, Calendar, Clock, MapPin, Trophy, MessageCircle } from "lucide-react";
 import type { Event } from "@/lib/types";
 import { SOCIAL_LINKS } from "@/lib/constants";
 
@@ -12,7 +12,7 @@ interface EventModalProps {
 }
 
 function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString("id-ID", {
+  return new Date(dateStr).toLocaleDateString("en-US", {
     weekday: "long",
     day: "numeric",
     month: "long",
@@ -41,7 +41,7 @@ export function EventModal({ event, onClose }: EventModalProps) {
 
   if (!event) return null;
 
-  const waMessage = encodeURIComponent(`Halo, saya ingin mendaftar event: ${event.title} (${formatDate(event.date)})`);
+  const waMessage = encodeURIComponent(`Hi, I'd like to register for the event: ${event.title} (${formatDate(event.date)})`);
   const waUrl = `${SOCIAL_LINKS.whatsapp}?text=${waMessage}`;
 
   return (
@@ -71,7 +71,7 @@ export function EventModal({ event, onClose }: EventModalProps) {
           <button
             onClick={onClose}
             className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/40 text-white flex items-center justify-center hover:bg-black/60 transition-colors"
-            aria-label="Tutup"
+            aria-label="Close"
           >
             <X className="w-4 h-4" />
           </button>
@@ -100,7 +100,7 @@ export function EventModal({ event, onClose }: EventModalProps) {
             </div>
             <div className="flex items-center gap-2 text-sm text-muted">
               <Clock className="w-4 h-4 shrink-0 text-accent" />
-              <span>{event.time} WIB</span>
+              <span>{event.time}</span>
             </div>
             <div className="flex items-center gap-2 text-sm text-muted">
               <MapPin className="w-4 h-4 shrink-0 text-accent" />
@@ -114,29 +114,6 @@ export function EventModal({ event, onClose }: EventModalProps) {
             )}
           </div>
 
-          {/* Slots */}
-          {event.spots !== undefined && event.spotsLeft !== undefined && (
-            <div className="bg-gray-50 rounded-xl p-4">
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2 text-sm font-medium text-foreground">
-                  <Users className="w-4 h-4 text-accent" />
-                  <span>Slot Tersedia</span>
-                </div>
-                <span className="text-sm font-bold text-accent">
-                  {event.spotsLeft} / {event.spots}
-                </span>
-              </div>
-              <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-accent rounded-full transition-all"
-                  style={{
-                    width: `${((event.spots - event.spotsLeft) / event.spots) * 100}%`,
-                  }}
-                />
-              </div>
-            </div>
-          )}
-
           {/* Description */}
           <p className="text-sm text-muted leading-relaxed">{event.description}</p>
 
@@ -148,7 +125,7 @@ export function EventModal({ event, onClose }: EventModalProps) {
             className="flex items-center justify-center gap-2 w-full py-3.5 bg-accent text-white rounded-xl font-semibold text-sm hover:opacity-90 transition-opacity"
           >
             <MessageCircle className="w-4 h-4" />
-            Daftar via WhatsApp
+            Register via WhatsApp
           </a>
         </div>
       </div>
