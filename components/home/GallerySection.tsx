@@ -12,7 +12,6 @@ const galleryImages = [
   { src: "/images/gallery-3.jpg", alt: "Premium facilities", span: "" },
   { src: "/images/gallery-4.jpg", alt: "Player experience", span: "" },
   { src: "/images/gallery-5.jpg", alt: "Lounge area", span: "" },
-  { src: "/images/gallery-6.jpg", alt: "Evening session", span: "md:col-span-2" },
 ];
 
 export function GallerySection() {
