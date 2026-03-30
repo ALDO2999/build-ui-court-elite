@@ -10,8 +10,8 @@ interface PromoCardProps {
 
 export function PromoCard({ promo }: PromoCardProps) {
   return (
-    <div className="group bg-white rounded-2xl overflow-hidden border border-muted-foreground/10 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-      <div className="relative aspect-[16/9]">
+    <div className="group bg-white rounded-2xl overflow-hidden border border-muted-foreground/10 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 flex flex-col">
+      <div className="relative aspect-[16/9] shrink-0">
         <Image
           src={promo.image}
           alt={promo.title}
@@ -23,14 +23,14 @@ export function PromoCard({ promo }: PromoCardProps) {
           <Badge>{promo.discount}</Badge>
         </div>
       </div>
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-1">
         <h3 className="text-xl font-semibold text-foreground mb-2">
           {promo.title}
         </h3>
-        <p className="text-muted text-sm leading-relaxed mb-4">
+        <p className="text-muted text-sm leading-relaxed mb-6">
           {promo.description}
         </p>
-        <div className="flex items-center justify-between">
+        <div className="mt-auto flex items-center justify-between">
           <span className="text-xs text-muted">
             Valid until {new Date(promo.validUntil).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
           </span>
