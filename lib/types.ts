@@ -44,6 +44,22 @@ export interface Booking {
 export interface NavLink {
   label: string;
   href: string;
+  external?: boolean;
+}
+
+export interface Event {
+  id: string;
+  title: string;
+  category: string;
+  date: string;
+  time: string;
+  location: string;
+  image: string;
+  shortDescription: string;
+  description: string;
+  prize?: string;
+  spots?: number;
+  spotsLeft?: number;
 }
 
 export interface Facility {

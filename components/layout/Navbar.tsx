@@ -41,18 +41,27 @@ export function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "text-sm font-medium uppercase tracking-wider transition-colors duration-300 hover:opacity-70",
-                  scrolled ? "text-foreground" : "text-white"
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const cls = cn(
+                "text-sm font-medium uppercase tracking-wider transition-colors duration-300 hover:opacity-70",
+                scrolled ? "text-foreground" : "text-white"
+              );
+              return link.external ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cls}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link key={link.href} href={link.href} className={cls}>
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Mobile Menu Toggle - Animated Hamburger */}
@@ -98,24 +107,36 @@ export function Navbar() {
         <div className="flex flex-col justify-between h-full px-8 py-12">
           {/* Nav Links */}
           <div className="flex flex-col gap-1">
-            {NAV_LINKS.map((link, i) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className={cn(
-                  "text-3xl font-bold uppercase tracking-wider text-white/70 hover:text-white transition-all duration-500 py-3 border-b border-white/10",
-                  mobileOpen
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-4"
-                )}
-                style={{
-                  transitionDelay: mobileOpen ? `${i * 75 + 100}ms` : "0ms",
-                }}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {NAV_LINKS.map((link, i) => {
+              const cls = cn(
+                "text-3xl font-bold uppercase tracking-wider text-white/70 hover:text-white transition-all duration-500 py-3 border-b border-white/10",
+                mobileOpen ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+              );
+              const style = { transitionDelay: mobileOpen ? `${i * 75 + 100}ms` : "0ms" };
+              return link.external ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileOpen(false)}
+                  className={cls}
+                  style={style}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={cls}
+                  style={style}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Bottom section - Social & Brand */}

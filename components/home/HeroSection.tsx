@@ -31,11 +31,11 @@ export function HeroSection() {
           {BRAND_TAGLINE}
         </p>
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/booking">
+          <a href="https://wa.me/62895405101690" target="_blank" rel="noopener noreferrer">
             <Button variant="primary" size="lg">
               Book Now
             </Button>
-          </Link>
+          </a>
           <Link href="/#about">
             <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-foreground">
               Discover More

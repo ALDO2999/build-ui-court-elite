@@ -1,4 +1,4 @@
-import type { Court, PricingPlan, Testimonial, Promo, Booking, Facility } from "./types";
+import type { Court, PricingPlan, Testimonial, Promo, Booking, Facility, Event } from "./types";
 
 export const courts: Court[] = [
   {
@@ -133,6 +133,63 @@ export const bookings: Booking[] = [
   { id: "b-3", courtName: "Court Gamma", date: "2026-02-28", time: "14:00", duration: "2 hours", status: "completed" },
   { id: "b-4", courtName: "Court Alpha", date: "2026-02-20", time: "09:00", duration: "1 hour", status: "completed" },
   { id: "b-5", courtName: "Court Beta", date: "2026-02-15", time: "17:00", duration: "1.5 hours", status: "cancelled" },
+];
+
+export const events: Event[] = [
+  {
+    id: "event-1",
+    title: "The Next Padel Open 2026",
+    category: "Tournament",
+    date: "2026-04-12",
+    time: "08:00",
+    location: "Court Alpha & Beta",
+    image: "/images/court-interior.jpg",
+    shortDescription: "Turnamen padel terbuka dengan sistem bracket 32 pemain. Hadiah total jutaan rupiah.",
+    description: "The Next Padel Open adalah turnamen tahunan bergengsi yang mempertemukan para pemain terbaik dari seluruh kota. Format bracket single elimination, dibagi dalam kategori Men's, Women's, dan Mixed Doubles. Semua level dipersilakan mendaftar. Tersedia wasit profesional, papan skor digital, dan area penonton khusus. Peserta mendapatkan jersey eksklusif dan goodie bag.",
+    prize: "Rp 5.000.000",
+    spots: 32,
+    spotsLeft: 8,
+  },
+  {
+    id: "event-2",
+    title: "Beginner Padel Clinic",
+    category: "Clinic",
+    date: "2026-04-19",
+    time: "09:00",
+    location: "Court Gamma",
+    image: "/images/court-exterior.jpg",
+    shortDescription: "Sesi klinik untuk pemula, dipandu langsung oleh pelatih bersertifikat.",
+    description: "Clinic ini dirancang khusus untuk pemula yang ingin mengenal olahraga padel dari dasar. Materi mencakup teknik memegang raket, footwork dasar, servis, dan rally pendek. Sesi berlangsung 3 jam dengan rasio 1 pelatih untuk 4 peserta. Raket dan bola disediakan. Peserta cukup datang dengan pakaian olahraga dan sepatu.",
+    spots: 12,
+    spotsLeft: 5,
+  },
+  {
+    id: "event-3",
+    title: "Night Padel Social",
+    category: "Social",
+    date: "2026-04-26",
+    time: "19:00",
+    location: "Semua Court",
+    image: "/images/branding-1.jpg",
+    shortDescription: "Malam santai bermain padel, kenalan dengan sesama player, dan nikmati free drinks.",
+    description: "Night Padel Social adalah acara networking santai untuk komunitas padel lokal. Format round-robin acak, jadi setiap peserta akan bermain bersama orang-orang baru. Tidak ada kompetisi, semua tentang bersenang-senang dan memperluas jaringan. Tersedia free light refreshments, musik, dan sesi foto. Cocok untuk semua level kemampuan.",
+    spots: 24,
+    spotsLeft: 11,
+  },
+  {
+    id: "event-4",
+    title: "Corporate Padel Cup",
+    category: "Tournament",
+    date: "2026-05-10",
+    time: "07:30",
+    location: "Court Alpha, Beta & Gamma",
+    image: "/images/court-aerial.jpg",
+    shortDescription: "Turnamen antar perusahaan, daftarkan tim kamu dan rebut trofi bergengsi.",
+    description: "Corporate Padel Cup mengundang tim dari berbagai perusahaan untuk bersaing dalam semangat sportivitas dan team building. Setiap tim terdiri dari 4 orang (2 pasang doubles). Format group stage dilanjutkan dengan knockout. Tersedia piala dan medali, serta dokumentasi profesional untuk setiap tim. Cocok sebagai kegiatan team outing kantor.",
+    prize: "Trofi & Merchandise",
+    spots: 16,
+    spotsLeft: 6,
+  },
 ];
 
 export const timeSlots = [
