@@ -92,12 +92,84 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const facilities: Facility[] = [
-  { icon: "racquet", title: "Professional Courts", description: "World-class courts with premium surfaces and professional lighting" },
-  { icon: "sofa", title: "VIP Lounge", description: "Exclusive lounge area with refreshments and panoramic court views" },
-  { icon: "lock", title: "Private Lockers", description: "Secure locker rooms with premium amenities and shower facilities" },
-  { icon: "car", title: "Valet Parking", description: "Complimentary parking with valet service for all members" },
-  { icon: "dumbbell", title: "Fitness Zone", description: "Dedicated warm-up and fitness area for pre-game preparation" },
-  { icon: "coffee", title: "Pro Shop & Cafe", description: "Curated equipment shop and artisan cafe on premises" },
+  {
+    icon: "racquet",
+    title: "Professional Courts",
+    description: "World-class courts with premium surfaces and professional lighting",
+    image: "/images/court-interior.jpg",
+    details: [
+      "Lantai padel berstandar internasional (FIP certified)",
+      "Pencahayaan LED profesional 1000+ lux untuk malam hari",
+      "Kaca tempered anti-pecah di sekeliling lapangan",
+      "Sistem ventilasi udara yang optimal untuk kenyamanan bermain",
+      "Tersedia 6 lapangan indoor & 2 lapangan outdoor",
+    ],
+  },
+  {
+    icon: "sofa",
+    title: "VIP Lounge",
+    description: "Exclusive lounge area with refreshments and panoramic court views",
+    image: "/images/vip_lounge.jpg",
+    details: [
+      "Area lounge eksklusif dengan pemandangan langsung ke lapangan",
+      "Sofa premium dan meja privat untuk anggota VIP",
+      "Free welcome drink setiap kunjungan",
+      "TV layar besar untuk menonton pertandingan live",
+      "Koneksi Wi-Fi ultra-cepat di seluruh area lounge",
+    ],
+  },
+  {
+    icon: "lock",
+    title: "Private Lockers",
+    description: "Secure locker rooms with premium amenities and shower facilities",
+    image: "/images/private_lockers.jpg",
+    details: [
+      "Loker pribadi berukuran besar dengan kunci digital",
+      "Ruang ganti terpisah pria & wanita yang luas",
+      "Shower room dengan air panas 24 jam",
+      "Tersedia amenities lengkap (sabun, shampoo, handuk)",
+      "Ruang khusus penyimpanan raket dan peralatan",
+    ],
+  },
+  {
+    icon: "car",
+    title: "Valet Parking",
+    description: "Complimentary parking with valet service for all members",
+    image: "/images/parking.jpg",
+    details: [
+      "Layanan valet gratis untuk semua anggota aktif",
+      "Area parkir berkapasitas 100+ kendaraan",
+      "CCTV 24 jam di seluruh area parkir",
+      "Parkir khusus difabel tersedia",
+      "Tersedia stasiun pengisian daya kendaraan listrik (EV)",
+    ],
+  },
+  {
+    icon: "dumbbell",
+    title: "Fitness Zone",
+    description: "Dedicated warm-up and fitness area for pre-game preparation",
+    image: "/images/Fitness Zone.jpg",
+    details: [
+      "Area pemanasan seluas 200 m² dengan peralatan lengkap",
+      "Peralatan kardio dan beban bermerek internasional",
+      "Matras yoga dan stretching corner",
+      "Tersedia personal trainer bersertifikat (on request)",
+      "Program latihan khusus untuk pemain padel",
+    ],
+  },
+  {
+    icon: "coffee",
+    title: "Pro Shop & Cafe",
+    description: "Curated equipment shop and artisan cafe on premises",
+    image: "/images/pro-shop-cafe.jpg",
+    details: [
+      "Koleksi lengkap raket dari brand premium dunia",
+      "Apparel dan aksesoris padel eksklusif",
+      "Layanan restring & perbaikan raket on-site",
+      "Cafe artisan dengan menu sehat dan minuman energi",
+      "Diskon khusus 15% untuk anggota aktif",
+    ],
+  },
 ];
 
 export const promos: Promo[] = [

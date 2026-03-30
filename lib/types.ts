@@ -66,4 +66,6 @@ export interface Facility {
   icon: string;
   title: string;
   description: string;
+  image?: string;
+  details?: string[];
 }
