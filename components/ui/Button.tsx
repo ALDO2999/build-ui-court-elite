@@ -16,7 +16,7 @@ export function Button({
   return (
     <button
       className={cn(
-        "inline-flex items-center justify-center font-semibold uppercase tracking-wide transition-all duration-300 cursor-pointer",
+        "inline-flex items-center justify-center font-semibold uppercase tracking-wide transition-all duration-300 cursor-pointer rounded-lg",
         size === "default" && "h-12 px-8 text-sm",
         size === "lg" && "h-14 px-10 text-base",
         variant === "primary" &&
