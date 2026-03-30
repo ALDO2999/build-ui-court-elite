@@ -6,7 +6,7 @@ export const BRAND_TAGLINE = "Where Excellence Meets the Court";
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "Courts", href: "/#facilities" },
-  { label: "Book", href: "https://wa.me/62895405101690", external: true },
+  { label: "Book", href: "/booking" },
   { label: "Events", href: "/events" },
   { label: "Promos", href: "/promo" },
   { label: "Contact", href: "/#contact" },
