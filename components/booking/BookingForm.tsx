@@ -41,7 +41,7 @@ export function BookingForm({ courtName, date, time, onSubmit }: BookingFormProp
           <Input label="Last Name" id="last-name" placeholder="Doe" />
         </div>
         <Input label="Email" id="email" type="email" placeholder="john@example.com" />
-        <Input label="Phone" id="phone" type="tel" placeholder="+971 50 123 4567" />
+        <Input label="Phone" id="phone" type="tel" placeholder="+62" />
         <Select
           label="Duration"
           id="duration"

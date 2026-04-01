@@ -20,7 +20,7 @@ export function UserProfile() {
           <Input label="Last Name" id="profile-last" defaultValue="Doe" />
         </div>
         <Input label="Email" id="profile-email" type="email" defaultValue="john@example.com" />
-        <Input label="Phone" id="profile-phone" type="tel" defaultValue="+971 50 123 4567" />
+        <Input label="Phone" id="profile-phone" type="tel" defaultValue="+62" />
       </div>
 
       <Button variant="primary">Save Changes</Button>
