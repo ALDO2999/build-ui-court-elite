@@ -103,8 +103,7 @@ export default function MenuPage() {
               className="bg-white rounded-2xl border border-muted-foreground/10 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
             >
               {/* Category Header */}
-              <div className="bg-foreground px-6 py-4 flex items-center gap-3">
-                <span className="text-2xl">{cat.emoji}</span>
+              <div className="bg-foreground px-6 py-4">
                 <h3 className="text-white font-semibold text-lg uppercase tracking-wide">
                   {cat.category}
                 </h3>

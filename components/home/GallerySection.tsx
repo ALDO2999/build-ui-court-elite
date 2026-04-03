@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { useInView } from "@/hooks/useInView";
@@ -11,7 +12,7 @@ const galleryImages = [
   { src: "/images/gallery-2.jpg", alt: "Court lighting", span: "" },
   { src: "/images/gallery-3.jpg", alt: "Premium facilities", span: "" },
   { src: "/images/gallery-4.jpg", alt: "Player experience", span: "" },
-  { src: "/images/gallery-5.jpg", alt: "Lounge area", span: "" },
+  { src: "/images/gallery-5.jpg", alt: "Lounge area", span: "hidden md:block" },
 ];
 
 export function GallerySection() {
@@ -49,6 +50,15 @@ export function GallerySection() {
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300" />
           </div>
         ))}
+      </div>
+
+      <div className="mt-10 flex justify-center">
+        <Link
+          href="/gallery"
+          className="px-8 py-3 border border-foreground text-foreground text-sm font-semibold uppercase tracking-wider rounded-full hover:bg-foreground hover:text-white transition-all duration-300"
+        >
+          Details
+        </Link>
       </div>
     </Section>
   );

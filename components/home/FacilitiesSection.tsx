@@ -43,7 +43,7 @@ export function FacilitiesSection() {
               {facility.description}
             </p>
             <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent group-hover:gap-2.5 transition-all duration-200">
-              Lihat Detail
+              Detail
               <ArrowRight className="w-3.5 h-3.5" />
             </span>
           </button>
